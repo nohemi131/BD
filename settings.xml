@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<localRepository>C:\Users\U726782\.m2</localRepository>
+	<mirrors>
+		<mirror>
+			<mirrorOf>*</mirrorOf>
+			<name>mvn-all</name>
+			<url>http://repos.bancsabadell.com/artifactory/libs-release</url>
+			<id>artifactory</id>
+		</mirror>
+	</mirrors>
+	<pluginGroups>
+		<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+	</pluginGroups>
+	<profiles>
+		<profile>
+			<repositories>
+				<repository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>artifactory</id>
+					<name>libs-release</name>
+					<url>http://repos.bancsabadell.com/artifactory/libs-release-local/</url>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>artifactory-plugins-release</id>
+					<name>artifactory-plugins-release</name>
+					<url>http://repos.bancsabadell.com/artifactory/plugins-release</url>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots/>
+					<id>artifactory-plugins-snapshot</id>
+					<name>artifactory-plugins-snapshot</name>
+					<url>http://repos.bancsabadell.com/artifactory/plugins-snapshot</url>
+				</pluginRepository>
+			</pluginRepositories>
+			<id>artifactory</id>
+		</profile>
+		<profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <!-- <sonar.host.url>
+                  http://myserver:9000
+                </sonar.host.url> -->
+            </properties>
+        </profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>artifactory</activeProfile>
+	</activeProfiles>
+</settings>
